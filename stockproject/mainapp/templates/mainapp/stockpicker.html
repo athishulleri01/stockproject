@@ -1,0 +1,40 @@
+{% extends 'mainapp/basic.html' %}
+{% load static %}
+{% block title%}
+stockpicker
+{% endblock %}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Live Stock Tracker</h1>
+    <p>select your favourite stocks.</p>
+    <form action="{% url 'stocktracker' %}">
+        <label for="stockpicker">Select Stocks :</label>
+        <select class="form-select form-select-lg mb-3" multiple aria-label="Multiple select example" name="stockpicker">
+            {% for stock in stock_picker %}
+  
+          <option value="{{stock}}">{{stock}}</option>
+          
+          {% endfor %}
+        </select>
+        <br>
+        <div class="d-grid gap-2">
+            <input class="btn btn-primary" type="submit" value="submit">
+            
+          </div>
+    </form>
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+
+</script>
+{% endblock %}
